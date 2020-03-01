@@ -1,0 +1,7 @@
+/node_modules
+/.idea
+.idea
+/.idea/vcs.xml
+/dist
+/.rpt2_cache
+/.DS_Store
