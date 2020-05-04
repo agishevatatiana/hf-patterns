@@ -1,4 +1,3 @@
-
 // strategy pattern
 interface ReportBehavior {
 	generateReport(): string;
@@ -41,33 +40,39 @@ class User {
 class Admin extends User {
 	constructor() {
 		super();
-		super.reportBehavior = new FullReport();
+		this.reportBehavior = new FullReport();
 	}
 }
 
 class Member extends User {
 	constructor() {
 		super();
-		super.reportBehavior = new ArticlesReport();
+		this.reportBehavior = new ArticlesReport();
 	}
 }
 // ... other users
 
 
 // test report
-export class TestStrategy {
+class TestStrategy {
 	// test report
-  	private users = {
+  	private users = <any>{
       	admin: new Admin(), // full report
       	member: new Member() // articles report
-  	}
+  	};
 
   	getReportBtnClick(userType: string): void {
       	console.log(userType, ': ', this.users[userType].performReport());
   	}
 
   	changeReport(userType: string): void {
-      	this.users[userType].setReport(new UpdatesReport());
+		this.users[userType].setReport(new UpdatesReport());
       	this.getReportBtnClick(userType) // updates report
   	}
 }
+
+const testStrategy = new TestStrategy();
+testStrategy.getReportBtnClick('admin');
+testStrategy.getReportBtnClick('member');
+// changeReport
+testStrategy.changeReport('member');

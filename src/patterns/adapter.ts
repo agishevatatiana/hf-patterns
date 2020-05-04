@@ -8,7 +8,7 @@ interface Duck {
     Fly(): string;
 }
 
-export class DuckAdapter implements Turkey {
+class DuckAdapter implements Turkey {
     duck: Duck;
 
     constructor(duck: Duck) {
@@ -24,7 +24,7 @@ export class DuckAdapter implements Turkey {
     }
 }
 
-export class MallardDuck implements Duck {
+class MallardDuck implements Duck {
     constructor() {}
 
     Quack(): string {
@@ -36,7 +36,7 @@ export class MallardDuck implements Duck {
     }
 }
 
-export class TurkeyAdapter implements Duck {
+class TurkeyAdapter implements Duck {
     turkey: Turkey;
 
     constructor(turkey: Turkey) {
@@ -57,7 +57,7 @@ export class TurkeyAdapter implements Duck {
     }
 }
 
-export class WildTurkey implements Turkey {
+class WildTurkey implements Turkey {
     constructor() {}
 
     Gobble(): string {
@@ -69,7 +69,23 @@ export class WildTurkey implements Turkey {
     }
 }
 
-export const testDuck = (duck: Duck) => {
+const testDuck = (duck: Duck) => {
     console.log(duck.Quack());
     console.log(duck.Fly());
 };
+
+const duck = new MallardDuck();
+const turkey = new WildTurkey();
+const turkeyAdapter = new TurkeyAdapter(turkey);
+console.log('The Turkey Says: ');
+console.log(turkey.Gobble());
+console.log(turkey.Fly());
+console.log('----');
+
+console.log('The Duck Says: ');
+testDuck(duck);
+console.log('----');
+
+console.log('The turkeyAdapter Says: ');
+testDuck(turkeyAdapter);
+console.log('----');

@@ -303,3 +303,5 @@ export class GumballMachineTestDrive {
         console.log(this.gumballMachine);
     }
 }
+
+const test1 = new GumballMachineTestDrive();

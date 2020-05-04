@@ -46,7 +46,7 @@ export class ConcreteSubject implements Subject {
     }
 }
 
-export class ConcreteObserver1 implements Observer {
+class ConcreteObserver1 implements Observer {
     _subjectData: Subject;
     _data: any;
 
@@ -60,3 +60,10 @@ export class ConcreteObserver1 implements Observer {
         console.log('Data updated: ', this._data);
     }
 }
+
+const subjectData = new ConcreteSubject();
+const showUpdatedData = new ConcreteObserver1(subjectData);
+subjectData.setData('data1'); // in console 'Data updated: data1'
+subjectData.setData('data2'); // in console 'Data updated: data2'
+subjectData.removeObserver(showUpdatedData);
+subjectData.setData('data3'); // nothing in console

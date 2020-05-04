@@ -6,19 +6,25 @@
   "type": "commonjs",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "bili": "bili",
-    "build": "bili --watch",
-    "watch": "tsc --watch",
+    "strategy": "ts-node src/patterns/strategy.ts",
+    "adapter": "ts-node src/patterns/adapter.ts",
+    "command": "ts-node src/patterns/command.ts",
+    "composite": "ts-node src/patterns/composite.ts",
+    "observer": "ts-node src/patterns/observer.ts",
+    "proxy": "ts-node src/patterns/proxy.ts",
+    "decorator": "ts-node src/patterns/decorator.ts",
+    "factory-method": "ts-node src/patterns/factory-method.ts",
+    "state": "ts-node src/patterns/state.ts",
+    "singleton": "ts-node src/patterns/singleton.ts",
+    "build": "tsc: watch",
+    "start": "node server.js",
     "test": "cd test && npm run test"
   },
   "author": "tatiana.agisheva",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^12.6.9",
+    "ts-node": "^8.10.1",
     "typescript": "^3.5.3"
-  },
-  "dependencies": {
-    "bili": "^4.8.1",
-    "rollup-plugin-typescript2": "^0.22.1"
   }
 }

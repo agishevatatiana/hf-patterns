@@ -142,7 +142,7 @@ export class CeilingFanHighCommand extends ConcreteCommand {
     }
 
     execute(): void {
-        super.prevSpeed = this.ceilingFan.getSpeed();
+        this.prevSpeed = this.ceilingFan.getSpeed();
         this.ceilingFan.high();
     }
 }
@@ -154,7 +154,7 @@ export class CeilingFanLowCommand extends ConcreteCommand {
     }
 
     execute(): void {
-        super.prevSpeed = this.ceilingFan.getSpeed();
+        this.prevSpeed = this.ceilingFan.getSpeed();
         this.ceilingFan.low();
     }
 }
@@ -166,7 +166,7 @@ export class CeilingFanMediumCommand extends ConcreteCommand {
     }
 
     execute(): void {
-        super.prevSpeed = this.ceilingFan.getSpeed();
+        this.prevSpeed = this.ceilingFan.getSpeed();
         this.ceilingFan.medium();
     }
 }
@@ -178,7 +178,30 @@ export class CeilingFanOffCommand extends ConcreteCommand {
     }
 
     execute(): void {
-        super.prevSpeed = this.ceilingFan.getSpeed();
+        this.prevSpeed = this.ceilingFan.getSpeed();
         this.ceilingFan.off();
     }
 }
+
+const remoteControl = new RemoteControlWithUndo();
+const ceilingFan = new CeilingFan("Living Room");
+
+const ceilingFanLow = new CeilingFanLowCommand(ceilingFan);
+const ceilingFanMedium = new CeilingFanMediumCommand(ceilingFan);
+const ceilingFanHigh = new CeilingFanHighCommand(ceilingFan);
+const ceilingFanOff = new CeilingFanOffCommand(ceilingFan);
+
+remoteControl.setCommand(0, ceilingFanLow, ceilingFanOff);
+remoteControl.setCommand(1, ceilingFanMedium, ceilingFanOff);
+remoteControl.setCommand(2, ceilingFanHigh, ceilingFanOff);
+
+remoteControl.onButtonWasPushed(0);
+console.log('onButtonWasPushed - 1: ', ceilingFan.getSpeed()); // 1
+remoteControl.onButtonWasPushed(2);
+console.log('onButtonWasPushed - 3: ', ceilingFan.getSpeed()); // 3
+remoteControl.undoButtonWasPushed();
+console.log('undoButtonWasPushed: ', ceilingFan.getSpeed()); // 1
+remoteControl.redoButtonWasPushed();
+console.log('redoButtonWasPushed: ', ceilingFan.getSpeed()); // 3
+remoteControl.offButtonWasPushed(0);
+console.log('offButtonWasPushed: ', ceilingFan.getSpeed()); // 0

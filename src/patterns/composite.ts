@@ -236,3 +236,5 @@ export class MenuTestDrive {
 
     }
 }
+
+const test = new MenuTestDrive();

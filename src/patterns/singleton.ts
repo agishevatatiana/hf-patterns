@@ -21,3 +21,10 @@ export class Singleton {
         return this.summ;
     }
 }
+
+let singleton1 = Singleton.getInstance();
+let singleton2 = Singleton.getInstance();
+singleton1.addition(1,2);
+singleton2.addition(3,4);
+console.log('first result: ', singleton1.getSumm());
+console.log('check second result is equal first result: ', singleton2.getSumm());
