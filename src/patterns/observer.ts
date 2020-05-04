@@ -46,7 +46,7 @@ export class ConcreteSubject implements Subject {
     }
 }
 
-class ConcreteObserver1 implements Observer {
+export class ConcreteObserver1 implements Observer {
     _subjectData: Subject;
     _data: any;
 

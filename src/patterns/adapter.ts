@@ -24,7 +24,7 @@ class DuckAdapter implements Turkey {
     }
 }
 
-class MallardDuck implements Duck {
+export class MallardDuck implements Duck {
     constructor() {}
 
     Quack(): string {
@@ -36,7 +36,7 @@ class MallardDuck implements Duck {
     }
 }
 
-class TurkeyAdapter implements Duck {
+export class TurkeyAdapter implements Duck {
     turkey: Turkey;
 
     constructor(turkey: Turkey) {
@@ -57,7 +57,7 @@ class TurkeyAdapter implements Duck {
     }
 }
 
-class WildTurkey implements Turkey {
+export class WildTurkey implements Turkey {
     constructor() {}
 
     Gobble(): string {
@@ -69,7 +69,7 @@ class WildTurkey implements Turkey {
     }
 }
 
-const testDuck = (duck: Duck) => {
+export const testDuck = (duck: Duck) => {
     console.log(duck.Quack());
     console.log(duck.Fly());
 };

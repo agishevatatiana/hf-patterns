@@ -58,7 +58,7 @@ class Creator2ProductType2 extends Product {
 
 }
 
-class ConcreteCreator1 extends Creator {
+export class ConcreteCreator1 extends Creator {
     factoryMethod(type: string) : Product {
         switch(type){
             case 'Type1':  return new Creator1ProductType1();
@@ -68,7 +68,7 @@ class ConcreteCreator1 extends Creator {
     }
 }
 
-class ConcreteCreator2 extends Creator {
+export class ConcreteCreator2 extends Creator {
     factoryMethod(type: string) : Product {
         switch(type){
             case 'Type1':  return new Creator2ProductType1();

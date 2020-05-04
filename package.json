@@ -16,9 +16,7 @@
     "factory-method": "ts-node src/patterns/factory-method.ts",
     "state": "ts-node src/patterns/state.ts",
     "singleton": "ts-node src/patterns/singleton.ts",
-    "build": "tsc: watch",
-    "start": "node server.js",
-    "test": "cd test && npm run test"
+    "start": "TS_NODE_PROJECT='./tsconfig.json' ts-node src/index.ts"
   },
   "author": "tatiana.agisheva",
   "license": "ISC",

@@ -1,14 +1,14 @@
-interface Subject {
+export interface Subject {
     request(): void;
 }
 
-class RealSubject implements Subject {
+export class RealSubject implements Subject {
     public request(): void {
         console.log('RealSubject: Handling request.');
     }
 }
 
-class ProxyTest implements Subject {
+export class ProxyTest implements Subject {
     private realSubject: RealSubject;
 
     constructor(realSubject: RealSubject) {

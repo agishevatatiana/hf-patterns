@@ -54,7 +54,7 @@ class Member extends User {
 
 
 // test report
-class TestStrategy {
+export class TestStrategy {
 	// test report
   	private users = <any>{
       	admin: new Admin(), // full report
