@@ -16,6 +16,7 @@
     "factory-method": "ts-node src/patterns/factory-method.ts",
     "state": "ts-node src/patterns/state.ts",
     "singleton": "ts-node src/patterns/singleton.ts",
+    "file-saving": "ts-node src/file-saving/file-saving.ts",
     "start": "TS_NODE_PROJECT='./tsconfig.json' ts-node src/index.ts"
   },
   "author": "tatiana.agisheva",
